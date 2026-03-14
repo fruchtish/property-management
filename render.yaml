@@ -3,8 +3,16 @@ services:
     name: property-management
     runtime: node
     buildCommand: npm install && npm run build
-    startCommand: node dist/index.cjs
+    startCommand: npm run db:migrate && node dist/index.cjs
     envVars:
       - key: NODE_ENV
         value: production
-    autoDeploy: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: property-db
+          property: connectionString
+
+databases:
+  - name: property-db
+    databaseName: property_management
+    plan: free
