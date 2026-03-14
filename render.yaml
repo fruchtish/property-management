@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: property-management
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: node dist/index.cjs
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true

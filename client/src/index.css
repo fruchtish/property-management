@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Property Management — Dark purple/blue finance theme */
+  --background: 240 15% 8%;
+  --foreground: 220 15% 88%;
+
+  --card: 240 13% 11%;
+  --card-foreground: 220 15% 88%;
+
+  --popover: 240 14% 13%;
+  --popover-foreground: 220 15% 88%;
+
+  --primary: 255 70% 65%;
+  --primary-foreground: 240 15% 8%;
+
+  --secondary: 240 10% 18%;
+  --secondary-foreground: 220 15% 80%;
+
+  --muted: 240 10% 16%;
+  --muted-foreground: 220 10% 55%;
+
+  --accent: 255 60% 55%;
+  --accent-foreground: 220 15% 95%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 10% 20%;
+  --input: 240 12% 16%;
+  --ring: 255 70% 65%;
+
+  --radius: 0.5rem;
+
+  --success: 142 71% 45%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --income: 142 71% 45%;
+  --expense: 0 72% 60%;
+
+  --font-sans: 'IBM Plex Sans Hebrew', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Always dark */
+.dark {
+  --background: 240 15% 8%;
+  --foreground: 220 15% 88%;
+  --card: 240 13% 11%;
+  --card-foreground: 220 15% 88%;
+  --popover: 240 14% 13%;
+  --popover-foreground: 220 15% 88%;
+  --primary: 255 70% 65%;
+  --primary-foreground: 240 15% 8%;
+  --secondary: 240 10% 18%;
+  --secondary-foreground: 220 15% 80%;
+  --muted: 240 10% 16%;
+  --muted-foreground: 220 10% 55%;
+  --accent: 255 60% 55%;
+  --accent-foreground: 220 15% 95%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 10% 20%;
+  --input: 240 12% 16%;
+  --ring: 255 70% 65%;
+}
+
+* { direction: rtl; }
+body { font-family: var(--font-sans); }
+
+/* RTL form fix */
+input, textarea, select { text-align: right; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+/* File drop zone */
+.drop-zone {
+  border: 2px dashed hsl(var(--border));
+  border-radius: var(--radius);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.05);
+}
+
+/* Amount badges */
+.amount-income { color: hsl(var(--income)); }
+.amount-expense { color: hsl(var(--expense)); }
+
+/* Table row hover */
+.tx-row:hover { background: hsl(var(--muted) / 0.6); }
+
+/* Stat card glow */
+.stat-card-income {
+  border-color: hsl(var(--income) / 0.3);
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(142 30% 10%));
+}
+.stat-card-expense {
+  border-color: hsl(var(--expense) / 0.3);
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(0 20% 11%));
+}
+.stat-card-profit {
+  border-color: hsl(var(--primary) / 0.3);
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(255 20% 11%));
+}
